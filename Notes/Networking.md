@@ -1,4 +1,3 @@
-
 **OSI Model:**
 - 1. Phisical - provides the physical connection between devices and is responsible for transmitting raw bits over a communication medium.
 - 2. Data Link - Describes an agreement between the different systems on the same [[#^networkSegment|network segment]] on how to communicate - *==Frames==*
@@ -37,7 +36,86 @@ DHCP follows four steps:
 - **Offer**: The server responds with a ==DHCPOFFER== message with an IP address available for the client to accept.
 - **Request**: The client responds with a ==DHCPREQUEST== message to indicate that it has accepted the offered IP.
 - **Acknowledge**: The server responds with a ==DHCPACK== message to confirm that the offered IP address is now assigned to this client.
+### ARP (Address Resolution Protocol)
+Allows a host device to determine the MAC address of another device on the local network.
+ARP process;:
+- ARP sends a broadcast request to the MAC address `ff:ff:ff:ff:ff:ff`
+- Only the device with the requested IP address responds with its MAC address
+
+### ICMP (Internet Control Message Protocol)
+Protocol that is mainly used for network diagnostics and error reporting.
+The commands are:
+- Ping
+- Traceroute
+
+### NAT (Network Address Translation)
+The idea behind NAT lies in using **one public IP address** to provide Internet access to **many private IP addresses**
+
+### Routing Protocols
+- **OSPF (Open Shortest Path First)** – a **link-state routing protocol** that shares network topology information and calculates the best path based on **cost** (e.g., bandwidth).
+- **EIGRP (Enhanced Interior Gateway Routing Protocol)** – a **Cisco proprietary advanced distance-vector routing protocol** that exchanges routing information and selects the best path using multiple metrics, such as **bandwidth** and **delay**.
+- **BGP (Border Gateway Protocol)** – an **inter-domain routing protocol** used to exchange routing information **between autonomous systems (ASes)** on the Internet and determine the best external routes.
+- **RIP (Routing Information Protocol)** – a **distance-vector routing protocol** that exchanges routing information and selects the best path based on the **fewest number of hops**, making it suitable for small networks. 
+
+### DNS (Domain Name System)
+
+**DNS** is a system that translates **domain names** (e.g., `google.com`) into **IP addresses** so computers can communicate with each other over the Internet.
+**DNS records** are entries stored in the DNS database. They contain information about a domain.
+**Examples:**
+- **A Record** - maps a domain name to an **IPv4 address**.  
+  Example: `example.com → 172.17.2.172`
+- **AAAA Record** - maps a domain name to an **IPv6 address**.  
+  Example: `example.com → 2001:db8::1`
+- **CNAME Record** - maps one domain name to another domain name (an alias).  
+  Example: `www.example.com → example.com`
+- **MX Record** - specifies the mail server responsible for handling emails for a domain.  
+  Example: `example.com → mail.example.com`
+
+### FTP (File Transfer Protocol)
+Protocol used to transfer files between a client and a server over a network. FTP listens on TCP port **21** by default;
+Example commands:
+- `USER` is used to input the username
+- `PASS` is used to enter the password
+- `RETR` (retrieve) is used to download a file from the FTP server to the client.
+- `STOR` (store) is used to upload a file from the client to the FTP server.
+
+### Emails
+
+##### **SMTP (Simple Mail Transfer Protocol)**  
+Protocol that defines how a mail client talks with a mail server and how a mail server talks with another. The SMTP server listens on TCP port **25** by default.
+Commands:
+- `HELO` or `EHLO` initiates an SMTP session
+- `MAIL FROM` specifies the sender’s email address
+- `RCPT TO` specifies the recipient’s email address
+- `DATA` indicates that the client will begin sending the content of the email message
+- `.` is sent on a line by itself to indicate the end of the email message
+##### **POP3 (Post Office Protocol version 3)**
+Protocol designed to allow the client to communicate with a mail server and retrieve email messages. POP3 server listens on TCP port **110** by default
+
+##### **IMAP (Internet Message Access Protocol)**
+Protocol that allows synchronizing read, moved, and deleted messages. IMAP server listens on TCP port **143** by default.
+
+
+
+### Commands:
+`WHOIS` -  provides information about the entity that registered a domain name, including the registrant's name, phone number, email address, and physical address.
+
 ### Definitions
 
 **network segment** - group of networked devices using a shared medium or channel for information transfer ^networkSegment
+
 **Telnet** - network protocol used to connect to remote systems and communicate using text commands. Command: telnet <ip_address> <port_number>
+
+
+### Ports
+
+|**Protocol**|**Transport Protocol**|**Default Port Number**|
+|---|---|---|
+|TELNET|TCP|23|
+|DNS|UDP or TCP|53|
+|HTTP|TCP|80|
+|HTTPS|TCP|443|
+|FTP|TCP|21|
+|SMTP|TCP|25|
+|POP3|TCP|110|
+|IMAP|TCP|143|
