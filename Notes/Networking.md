@@ -98,7 +98,7 @@ Protocol that allows synchronizing read, moved, and deleted messages. IMAP serv
 
 
 ### Commands:
-`WHOIS` -  provides information about the entity that registered a domain name, including the registrant's name, phone number, email address, and physical address.
+`WHOIS <website address>` -  provides information about the entity that registered a domain name, including the registrant's name, phone number, email address, and physical address.
 
 ### Definitions
 

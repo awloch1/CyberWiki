@@ -66,7 +66,15 @@ Command `Win + R -> regedit`
 - Central database that stores Windows settings and configuration
 - Contains information about users, software, hardware, and system settings
 
+### Firewall & Network protection
+Command `Win + R -> WF.msc`
+Type of Network:
+- **Domain** - _The domain profile applies to networks where the host system can authenticate to a domain controller._ 
+- **Private** - _The private profile is a user-assigned profile and is used to designate private or home networks._
+- **Public** - _The default profile is the public profile, used to designate public networks such as Wi-Fi hotspots at coffee shops, airports, and other locations._
 
+
+==`Invoke-Command` is a PowerShell cmdlet used to run commands on a local or remote computer.==
 ### Definitions
 
 **Page file** - file with extra virtual memory space when the physical RAM becomes full. ^pagefile
@@ -74,3 +82,5 @@ Command `Win + R -> regedit`
 **service** - special type of application that runs in the background ^service
 
 **environment variables** - stores data that is used by the operating system and other programs ^environmentVariables
+
+**Alternate Data Streams (ADS)** are a feature of the NTFS file system that allows additional hidden data to be stored alongside a file without changing its main contents
