@@ -96,6 +96,23 @@ Protocol designed to allow the client to communicate with a mail server and ret
 Protocol that allows synchronizing read, moved, and deleted messages. IMAP server listens on TCP port **143** by default.
 
 
+### TLS
+**TLS** is a cryptographic protocol operating at the OSI model’s transport layer. It allows secure communication between a client and a server over an insecure network
+
+A **TLS certificate** verifies a website’s identity and encrypts data between the website and your browser. 
+How it works:
+ - server administrator creates a Certificate Signing Request (**CSR**)
+ - Certificate Authority (**CA**) cerifies the CSR and issues a digital certificate
+ - Certificate can be used to identify the server
+
+### SSH
+SSH is used to securely connect to servers, routers, switches, and other network devices.
+command: `ssh username@hostname`
+`-X` - this argument is required to support running graphical interfaces.(The local system needs to have a suitable graphical system installed.)
+
+SFTP stands for SSH File Transfer Protocol and allows secure file transfer. It is part of the SSH protocol suite and shares the same port number, 22.
+command: `sftp username@hostname`
+
 
 ### Commands:
 `WHOIS <website address>` -  provides information about the entity that registered a domain name, including the registrant's name, phone number, email address, and physical address.
@@ -109,13 +126,18 @@ Protocol that allows synchronizing read, moved, and deleted messages. IMAP serv
 
 ### Ports
 
-|**Protocol**|**Transport Protocol**|**Default Port Number**|
-|---|---|---|
-|TELNET|TCP|23|
-|DNS|UDP or TCP|53|
-|HTTP|TCP|80|
-|HTTPS|TCP|443|
-|FTP|TCP|21|
-|SMTP|TCP|25|
-|POP3|TCP|110|
-|IMAP|TCP|143|
+| **Protocol** | **Transport Protocol** | **Default Port Number** |
+| ------------ | ---------------------- | ----------------------- |
+| TELNET       | TCP                    | 23                      |
+| DNS          | UDP or TCP             | 53                      |
+| HTTP         | TCP                    | 80                      |
+| HTTPS        | TCP                    | 443                     |
+| FTP          | TCP                    | 21                      |
+| SMTP         | TCP                    | 25                      |
+| POP3         | TCP                    | 110                     |
+| IMAP         | TCP                    | 143                     |
+| SMTPS        | TCP                    | 465 and 587             |
+| POP3S        | TCP                    | 995                     |
+| IMAPS        | TCP                    | 993                     |
+| SSH          | TCP                    | 22                      |
+| FTPS         | TCP                    | 990                     |
