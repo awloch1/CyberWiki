@@ -10,6 +10,9 @@
 - **Flawed two-factor verification logic** - failing to properly verify that the user completing the second authentication step is the same user who completed the first step.
 - **Bypassing two-factor authentication** - accessing protected pages directly after entering valid login credentials, without completing the 2FA verification step.
 - **Brute-forcing 2FA verification codes** - guessing short verification codes, such as 4- or 6-digit numbers, when the application does not implement effective rate limiting or account lockout mechanisms.
-
+##### Vulnerabilities in other authentication mechanisms
+- **Keeping users logged in**
+- **Resetting user passwords**
+- **Changing user passwords**
 
 `X-Forwarded-For` – HTTP header used by proxies to pass the original client's IP address to the backend server.

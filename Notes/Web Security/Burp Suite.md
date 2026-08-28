@@ -9,8 +9,3 @@
 - **Session handling** – controls how Burp manages and maintains an authenticated session, for example by refreshing tokens, updating cookies, or re-authenticating when needed.
 - **Cookie jar** – stores cookies collected by Burp, such as `session`, `PHPSESSID`, or `JSESSIONID`, so they can be reused in later requests.
 - **Macros** – saved sequences of requests that Burp can run automatically, for example: `GET login page → POST credentials → obtain a new session cookie`
-
-##### Vulnerabilities in other authentication mechanisms
-- **Keeping users logged in**
-- **Resetting user passwords**
-- **Changing user passwords**
