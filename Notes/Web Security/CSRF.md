@@ -1,0 +1,1 @@
+Cross-site request forgery (CSRF) is an attack in which an attacker causes a victim's browser to perform an unauthorized action on a web application using the victim's authenticated session
