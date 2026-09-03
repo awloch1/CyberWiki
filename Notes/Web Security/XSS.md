@@ -3,9 +3,30 @@ Cross-site scripting (XSS) is a web security vulnerability that allows an attack
 ### XSS types:
 
 - **Reflected cross-site scripting (Reflected XSS)** occurs when user-controlled input is reflected in a website's response without proper sanitization, causing malicious JavaScript to execute in the victim's browser. The attack is usually delivered through a specially crafted malicious link that the victim is tricked into opening. The attacker may then be able to perform actions with the same privileges as the victim user.
-  Manual testing:
-	  - **Test every entry point.**
-	    
+  **Manual testing:**
+	  - **Test every entry point.** - check all locations where user-controlled input can be supplied, such as URL parameters, request bodies, paths, and headers.
+	  - **Submit random alphanumeric values** - send a unique random value and check whether it appears in the response.
+	  - **Determine the reflection context** - identify where the input is reflected, for example in HTML, an attribute, or JavaScript.
+	  - **Test a candidate payload** - try a simple payload appropriate for the identified context.
+	  - **Test alternative payloads** - if the input is filtered or modified, try other suitable variations.
+	  - **Test the attack in a browser** - confirm whether the JavaScript actually executes in the browser.
+
+- **Stored cross-site scripting** -  occurs when an application receives data from an untrusted source and includes that data within its later HTTP responses in an unsafe way.
+  **Manual testing:**
+	- **Identify entry points** - find where attacker-controlled data can enter the application.
+	- **Submit a unique test value** - use a random value to track where the data appears later.
+	- **Identify exit points** - check later responses and pages where the stored value is displayed.
+	- **Confirm the data is stored** - verify that the value persists across different requests.
+	- **Determine the output context** - identify whether the value appears in HTML, an attribute, JavaScript, etc.
+	- **Test a suitable payload** - try an XSS payload appropriate for that context.
+	- **Verify in a browser** - confirm that the JavaScript executes when the stored data is viewed.
+
+- **DOM-based XSS**
+
+### reflected XSS vs stored XSS
+- **Reflected XSS** - victim clicks malicious link.
+- **Stored XSS** - victim visits a page containing previously stored malicious input.
+- **Self-XSS** - victim must manually paste/submit the malicious input themselves.
 
 ### Ways to Exploit cross-site scripting
 - **Steal cookies** - stealing cookies by sending victim cookies to your own domain
