@@ -21,7 +21,20 @@ Cross-site scripting (XSS) is a web security vulnerability that allows an attack
 	- **Test a suitable payload** - try an XSS payload appropriate for that context.
 	- **Verify in a browser** - confirm that the JavaScript executes when the stored data is viewed.
 
-- **DOM-based XSS**
+- **DOM-based XSS** - happens when JavaScript takes data controlled by the user, for example from the URL, and puts it into an unsafe place such as `innerHTML` or `eval()`.
+  **Manual testing:**
+- Check each possible source one by one and test it in the browser’s Developer Tools.
+**Testing HTML sinks:**
+- Inject a unique string into a source.
+- Find it in the DOM using DevTools.
+-  Check its context and try to break out of it.
+-  Remember that URL-encoding can prevent XSS.
+**Testing JavaScript execution sinks:**
+- Find where the source is used in JavaScript.
+- Set breakpoints in DevTools.
+- Trace the input through variables.
+- Check if it reaches a dangerous sink like `eval()`.
+- Inspect the value before it enters the sink.
 
 ### reflected XSS vs stored XSS
 - **Reflected XSS** - victim clicks malicious link.
@@ -46,3 +59,35 @@ mode: 'no-cors',
 body: <body>
 }); 
 </script>
+
+
+**main sinks that can lead to DOM-XSS vulnerabilities:**
+*document.write()* 
+*document.writeln()* 
+*document.domain* 
+*element.innerHTML* - does not accept onload or `<script>` instead use `<img src=1 onerror=...>`
+*element.outerHTML* 
+*element.insertAdjacentHTML* 
+*element.onevent*
+
+**JQuery sinks that can lead to DOM-XSS vulnerabilities:**
+*add()* 
+*after()* 
+*append()* 
+*animate()*
+*insertAfter()* 
+*insertBefore()* 
+*before()* 
+*html()* 
+*prepend()* 
+*replaceAll()* 
+*replaceWith()* 
+*wrap()* 
+*wrapInner()* 
+*wrapAll()* 
+*has()* 
+*constructor()* 
+*init()* 
+*index()* 
+*jQuery.parseHTML()* 
+*$.parseHTML()*
